@@ -20,29 +20,7 @@ describe('be-cookbook routes', () => {
     return mongoose.connection.close();
   });
   
-  it('gets all recipes', async() => {
-    const recipes = await Recipe.create([
-      { id: 123,
-        title: 'BobsBurgers',
-        image: 'www.image.com',
-        summary: 'bobs fantasic super duper delicious mega ultimate burger',
-        instructions: 'do this', 
-        extendedIngredients: [] },
-        
-    ]);
-    return request(app)
-      .get('/api/v1/recipes')
-      .then(res => {
-        recipes.forEach(recipe => {
-          expect(res.body).toContainEqual({
-            _id: recipe._id.toString(),
-            title: recipe.title
-          });
-        });
-      });
-  });
-});
-  
+
 // const recipe = {
 //   id: 1234,
 //   title: 'BobsBurgers',
